@@ -2,3 +2,4 @@ name: skillbook3-extra
 description: A focused skill-only bundle for testing exclusive grouping.
 skills:
   - skillbook3-zeta
+  - skillbook3-eta
