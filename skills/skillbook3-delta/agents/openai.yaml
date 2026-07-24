@@ -1,0 +1,4 @@
+interface:
+  display_name: "Skillbook 3 Delta"
+  short_description: "Test the first Skillbook 3 catalog skill"
+  default_prompt: "Use $skillbook3-delta to confirm the Skillbook 3 delta dummy skill is active."
