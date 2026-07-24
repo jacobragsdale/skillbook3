@@ -1,0 +1,5 @@
+name: skillbook3-extra
+description: A focused skill-only bundle for testing overlapping selections.
+skills:
+  - skillbook3-epsilon
+  - skillbook3-zeta

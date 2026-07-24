@@ -1,0 +1,7 @@
+name: skillbook3-core
+description: Two skills plus the always-on skillbook3 test rule.
+skills:
+  - skillbook3-delta
+  - skillbook3-epsilon
+rules:
+  - skillbook3-careful

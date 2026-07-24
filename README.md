@@ -1,3 +1,4 @@
 # skillbook3
 
-Three dummy skills for testing Skill Manager custom sources.
+Three dummy skills, one rule, and two valid bundles for testing mixed bundle
+membership and partial installation states.
