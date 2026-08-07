@@ -1,17 +1,14 @@
 # skillbook3
 
-A valid, non-executable source that exercises Skill Manager's declarative
-installation matrix.
+A valid Skill Manager source covering every supported installation shape.
 
 Coverage:
 
-- Agent Skills materialized into both `.agents/skills` and `.claude/skills`;
-- explicit regular-file, directory, and multi-file items;
-- generated prompt and JSON collections using every collection variable;
+- Agent Skill directories installed into `.agents/skills` and `.claude/skills`;
+- one regular file and one recursive directory;
 - `home`, `config`, `data`, `localData`, and `cache` anchors; and
-- supported and unsupported operating-system and architecture selectors.
+- source-to-destination paths whose basenames differ for generic files.
 
-All destinations live below `skill-manager-fixtures/skillbook3` (apart from
-the two normal Agent Skill roots), so cleanup is easy to inspect.
+All generic destinations live below `skill-manager-fixtures/skillbook3`.
 
 Repository URL: `https://github.com/jacobragsdale/skillbook3`
