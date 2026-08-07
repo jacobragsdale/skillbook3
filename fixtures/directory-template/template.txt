@@ -1,0 +1,1 @@
+This file verifies installation of a complete directory tree.

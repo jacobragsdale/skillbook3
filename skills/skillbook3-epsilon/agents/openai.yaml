@@ -1,4 +1,0 @@
-interface:
-  display_name: "Skillbook 3 Epsilon"
-  short_description: "Test the second Skillbook 3 catalog skill"
-  default_prompt: "Use $skillbook3-epsilon to confirm the Skillbook 3 epsilon dummy skill is active."

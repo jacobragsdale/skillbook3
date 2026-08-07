@@ -1,5 +1,0 @@
-name: skillbook3-core
-description: Two related skills for testing bundle installation.
-skills:
-  - skillbook3-delta
-  - skillbook3-epsilon

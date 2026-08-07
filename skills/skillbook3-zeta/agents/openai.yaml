@@ -1,4 +1,0 @@
-interface:
-  display_name: "Skillbook 3 Zeta"
-  short_description: "Test the third Skillbook 3 catalog skill"
-  default_prompt: "Use $skillbook3-zeta to confirm the Skillbook 3 zeta dummy skill is active."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Skillbook 3 Epsilon"
+  short_description: "Test bulk multi-destination behavior"
+  default_prompt: "Use $skillbook3-epsilon to verify bulk install and removal behavior."

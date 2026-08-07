@@ -4,12 +4,202 @@
   "source": {
     "id": "skillbook3",
     "name": "Skillbook 3",
-    "description": "A fixture source used to verify larger catalogs and namespace isolation."
+    "description": "A declarative fixture covering generic items, collections, destinations, and platform selectors."
   },
   "agentSkills": [
     {
       "include": ["skills/*"],
-      "destinations": [{ "anchor": "home", "path": ".agents/skills/${skill.name}" }]
+      "destinations": [
+        { "anchor": "home", "path": ".agents/skills/${skill.name}" },
+        { "anchor": "home", "path": ".claude/skills/${skill.name}" }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "id": "home-file",
+      "name": "Home anchored file",
+      "description": "Installs one regular file beneath the current user's home directory.",
+      "kind": "fixture-file",
+      "files": [
+        {
+          "source": "fixtures/files/home.txt",
+          "destination": {
+            "anchor": "home",
+            "path": ".skill-manager-fixtures/skillbook3/home.txt"
+          }
+        }
+      ]
+    },
+    {
+      "id": "config-file",
+      "name": "Configuration anchored file",
+      "description": "Installs a JSON file beneath the current user's configuration directory.",
+      "kind": "fixture-config",
+      "files": [
+        {
+          "source": "fixtures/files/settings.json",
+          "destination": {
+            "anchor": "config",
+            "path": "skill-manager-fixtures/skillbook3/settings.json"
+          }
+        }
+      ]
+    },
+    {
+      "id": "data-directory",
+      "name": "Data anchored directory",
+      "description": "Installs a complete nested directory beneath the current user's data directory.",
+      "kind": "fixture-directory",
+      "files": [
+        {
+          "source": "fixtures/directory-template",
+          "destination": {
+            "anchor": "data",
+            "path": "skill-manager-fixtures/skillbook3/directory-template"
+          }
+        }
+      ]
+    },
+    {
+      "id": "local-data-pair",
+      "name": "Atomic local-data pair",
+      "description": "Installs two sibling files as one transaction beneath the local-data anchor.",
+      "kind": "fixture-multi-file",
+      "files": [
+        {
+          "source": "fixtures/files/pair-a.txt",
+          "destination": {
+            "anchor": "localData",
+            "path": "skill-manager-fixtures/skillbook3/pair-a.txt"
+          }
+        },
+        {
+          "source": "fixtures/files/pair-b.txt",
+          "destination": {
+            "anchor": "localData",
+            "path": "skill-manager-fixtures/skillbook3/pair-b.txt"
+          }
+        }
+      ]
+    },
+    {
+      "id": "macos-only",
+      "name": "macOS-only fixture",
+      "description": "Remains installable only when the current operating system is macOS.",
+      "kind": "platform-fixture",
+      "files": [
+        {
+          "source": "platform/macos.txt",
+          "destination": {
+            "anchor": "home",
+            "path": ".skill-manager-fixtures/skillbook3/platform/macos.txt"
+          }
+        }
+      ],
+      "when": { "os": ["macos"] }
+    },
+    {
+      "id": "linux-only",
+      "name": "Linux-only fixture",
+      "description": "Remains visible but unsupported when the current operating system is not Linux.",
+      "kind": "platform-fixture",
+      "files": [
+        {
+          "source": "platform/linux.txt",
+          "destination": {
+            "anchor": "home",
+            "path": ".skill-manager-fixtures/skillbook3/platform/linux.txt"
+          }
+        }
+      ],
+      "when": { "os": ["linux"] }
+    },
+    {
+      "id": "windows-only",
+      "name": "Windows-only fixture",
+      "description": "Remains visible but unsupported when the current operating system is not Windows.",
+      "kind": "platform-fixture",
+      "files": [
+        {
+          "source": "platform/windows.txt",
+          "destination": {
+            "anchor": "home",
+            "path": ".skill-manager-fixtures/skillbook3/platform/windows.txt"
+          }
+        }
+      ],
+      "when": { "os": ["windows"] }
+    },
+    {
+      "id": "aarch64-only",
+      "name": "AArch64-only fixture",
+      "description": "Exercises an architecture selector for AArch64 systems.",
+      "kind": "platform-fixture",
+      "files": [
+        {
+          "source": "platform/aarch64.txt",
+          "destination": {
+            "anchor": "home",
+            "path": ".skill-manager-fixtures/skillbook3/architecture/aarch64.txt"
+          }
+        }
+      ],
+      "when": { "arch": ["aarch64"] }
+    },
+    {
+      "id": "x86-64-only",
+      "name": "x86-64-only fixture",
+      "description": "Exercises an architecture selector for x86-64 systems.",
+      "kind": "platform-fixture",
+      "files": [
+        {
+          "source": "platform/x86_64.txt",
+          "destination": {
+            "anchor": "home",
+            "path": ".skill-manager-fixtures/skillbook3/architecture/x86_64.txt"
+          }
+        }
+      ],
+      "when": { "arch": ["x86_64"] }
+    }
+  ],
+  "collections": [
+    {
+      "include": ["prompts/*.prompt.md"],
+      "item": {
+        "id": "${stem}-prompt",
+        "name": "Prompt ${stem}",
+        "description": "Installs ${basename} from ${path}.",
+        "kind": "prompt",
+        "files": [
+          {
+            "source": "${path}",
+            "destination": {
+              "anchor": "config",
+              "path": "skill-manager-fixtures/skillbook3/prompts/${basename}"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "include": ["snippets/*.json"],
+      "item": {
+        "id": "${stem}-snippet",
+        "name": "Snippet ${stem}",
+        "description": "Installs cached fixture ${basename}.",
+        "kind": "snippet",
+        "files": [
+          {
+            "source": "${path}",
+            "destination": {
+              "anchor": "cache",
+              "path": "skill-manager-fixtures/skillbook3/snippets/${basename}"
+            }
+          }
+        ]
+      }
     }
   ]
 }

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Skillbook 3 Delta"
+  short_description: "Test multiple Agent Skill destinations"
+  default_prompt: "Use $skillbook3-delta to verify its mirrored Agent Skill installation."
