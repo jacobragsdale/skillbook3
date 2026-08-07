@@ -1,0 +1,15 @@
+{
+  "$schema": "https://raw.githubusercontent.com/jacobragsdale/skill-manager/main/schemas/v1/source-manifest.schema.json",
+  "version": 1,
+  "source": {
+    "id": "skillbook3",
+    "name": "Skillbook 3",
+    "description": "A fixture source used to verify larger catalogs and namespace isolation."
+  },
+  "agentSkills": [
+    {
+      "include": ["skills/*"],
+      "destinations": [{ "anchor": "home", "path": ".agents/skills/${skill.name}" }]
+    }
+  ]
+}
